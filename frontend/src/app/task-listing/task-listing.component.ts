@@ -13,7 +13,7 @@ export class TaskListingComponent {
   postErrorMessage = '';
   isLoading = true;
 
-  constructor(private dataService: DataService,) {
+  constructor(private dataService: DataService) {
   }
   
   ngOnInit() {

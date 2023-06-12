@@ -4,19 +4,22 @@
             <mat-card-title>Create a new task</mat-card-title>
         </mat-card-header>
         <mat-card-content>
+            <form #form="ngForm" (ngSubmit)="onSubmit(form)">
             <div class="form-field">
                 <mat-label>Title:</mat-label>
                 <mat-form-field>
-                    <input matInput>
+                    <input matInput name="title" matInput [(ngModel)]="title" required #urlField="ngModel">
                 </mat-form-field>
             </div>
             <div class="form-field">
                 <mat-label>Task Description:</mat-label>
                 <mat-form-field>
-                    <textarea matInput></textarea>
+                    <textarea matInput name="description" matInput [(ngModel)]="description" required
+                        #urlField="ngModel"></textarea>
                 </mat-form-field>
             </div>
-            <button mat-raised-button color="primary">Create</button>
+            <button mat-raised-button color="primary" [disabled]="!form.valid">Create</button>
+            </form>
         </mat-card-content>
     </mat-card>
 </div>
