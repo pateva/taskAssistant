@@ -1,0 +1,12 @@
+.card {
+    max-width: 400px;
+  }
+
+  .container {
+    place-items: center;
+    display: grid;
+    height: calc(100% - 80px);
+    //border: solid;
+    //border-color: red;
+    padding-top: 5%;
+  }
