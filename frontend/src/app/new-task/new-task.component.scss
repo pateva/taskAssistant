@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 80px);
+    //border: solid;
+    //border-color: red;
+    padding-top: 5%;
+
+    mat-card {
+        width: 50%;
+    }
+
+    mat-card-header {
+        margin-bottom: 3%;;
+    }
+
+    mat-card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-field {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .form-field mat-label {
+        margin-right: 15px;
+        min-width: 120px;
+        text-align: right;
+    }
+
+    .form-field mat-form-field {
+        flex-grow: 1;
+    }
+}
