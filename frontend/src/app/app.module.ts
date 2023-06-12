@@ -10,8 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-
-
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -27,7 +27,9 @@ import { MatCardModule } from '@angular/material/card';
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

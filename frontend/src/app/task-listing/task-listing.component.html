@@ -1,1 +1,23 @@
-<p>task-listing works!</p>
+<div class="container">
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>Your pending tasks</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <ng-container *ngIf="tasks.length > 0; else noTasksTemplate">
+            <mat-selection-list>
+              <mat-list-option *ngFor="let task of tasks">
+                <span matListItemTitle>{{ task.taskTitel }}</span>
+                <span matListItemLine>{{ task.taskDescription }}</span>
+              </mat-list-option>
+            </mat-selection-list>
+          </ng-container>
+          <ng-template #noTasksTemplate>
+            <div class="empty_handle">
+            <mat-label>No pending tasks</mat-label>
+            <button mat-raised-button color="primary">Create a new task</button>
+        </div>
+          </ng-template>
+    </mat-card-content>
+    </mat-card>
+</div>
