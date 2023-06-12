@@ -28,7 +28,7 @@ export class DataService {
   postTask(task: Task): Observable<Task> {
 
     return this.http.post<Task>(this.baseUrl, task);
-  }
+  } 
 
   putTaskAsDone(task: Task): Observable<Task> {
 
