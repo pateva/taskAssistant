@@ -1,23 +1,26 @@
 <div class="container">
-<mat-card class="card">
+  <mat-card class="card">
     <mat-card-header>
-        <mat-card-title>Your pending tasks</mat-card-title>
+      <mat-card-title>Your pending tasks</mat-card-title>
+      <mat-card-subtitle>Tap on a task to mark as done</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <ng-container *ngIf="tasks.length > 0; else noTasksTemplate">
-            <mat-selection-list>
-              <mat-list-option *ngFor="let task of tasks">
-                <span matListItemTitle>{{ task.taskTitel }}</span>
-                <span matListItemLine>{{ task.taskDescription }}</span>
-              </mat-list-option>
-            </mat-selection-list>
-          </ng-container>
-          <ng-template #noTasksTemplate>
-            <div class="empty_handle">
-            <mat-label>No pending tasks</mat-label>
-            <button mat-raised-button color="primary">Create a new task</button>
+      <ng-container *ngIf="tasks.length > 0; else noTasksTemplate">
+        <mat-selection-list>
+          <mat-list-option *ngFor="let task of tasks" class="option_content">
+            <div class="task-info" (click)="updateTask(task)">
+              <span matListItemTitle>{{ task.title }}</span>
+              <span matListItemLine>{{ task.description }}</span>
+            </div>
+          </mat-list-option>
+        </mat-selection-list>
+      </ng-container>
+      <ng-template #noTasksTemplate>
+        <div class="empty_handle">
+          <mat-label>No pending tasks</mat-label>
+          <button mat-raised-button color="primary">Create a new task</button>
         </div>
-          </ng-template>
+      </ng-template>
     </mat-card-content>
-    </mat-card>
+  </mat-card>
 </div>

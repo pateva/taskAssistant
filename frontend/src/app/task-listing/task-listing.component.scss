@@ -19,3 +19,17 @@
     }
 
 }
+
+.option-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task-info {
+    flex-grow: 1;
+  }
+
+  .button-container {
+    margin-left: auto;
+  }

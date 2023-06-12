@@ -15,6 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -36,7 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatOptionModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
