@@ -11,7 +11,8 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getAllImages(): Observable<Task[]> {
+  getAllTasks(): Observable<Task[]> {
+  
     return this.http.get<Task[]>(this.baseUrl);
   }
 }
