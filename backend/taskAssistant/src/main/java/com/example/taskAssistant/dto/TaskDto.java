@@ -44,4 +44,10 @@ public class TaskDto {
     public void setTaskId(Long taskId) {
         this.taskId = taskId;
     }
+
+    @Override
+    public String toString() {
+        return "Task: " + title +
+                "\nDescription: " + description + "\n\n";
+    }
 }

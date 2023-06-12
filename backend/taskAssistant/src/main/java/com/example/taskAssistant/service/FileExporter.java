@@ -1,6 +1,7 @@
 package com.example.taskAssistant.service;
 
 import com.example.taskAssistant.dto.TaskDto;
+import com.example.taskAssistant.exceptions.ResourceNotFoundException;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
 import org.springframework.http.HttpStatus;
@@ -12,21 +13,27 @@ import java.util.List;
 
 public class FileExporter {
 
-    public static ResponseEntity<List<TaskDto>> exportTasksToFile() {
-       // exportTasksToFile();
-
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-     private void exportToFile(List<TaskDto> tasks) throws FileNotFoundException, DocumentException {
+    public static ResponseEntity<List<TaskDto>> exportTasksToFile(List<TaskDto> tasks) {
         Document document = new Document();
-        PdfWriter.getInstance(document, new FileOutputStream("iTextHelloWorld.pdf"));
+
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream("Tasks.pdf"));
+        } catch (DocumentException | FileNotFoundException e) {
+            throw new ResourceNotFoundException("Resource is currently unavailable");
+        }
 
         document.open();
-        Font font = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.BLACK);
-        Chunk chunk = new Chunk("Hello World", font);
+        Font font = FontFactory.getFont(FontFactory.TIMES_ROMAN, 16, BaseColor.BLACK);
 
-        document.add(chunk);
+        for (TaskDto task : tasks) {
+            try {
+                document.add(new Paragraph(task.toString(), font));
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            }
+        }
         document.close();
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -37,7 +37,7 @@ public class TaskController {
         }
 
         if(isToFile) {
-            return FileExporter.exportTasksToFile();
+            return FileExporter.exportTasksToFile(taskDtos);
 
         } else {
             return new ResponseEntity<>(taskDtos, HttpStatus.OK);
