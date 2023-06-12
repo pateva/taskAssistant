@@ -5,22 +5,20 @@
       <mat-card-subtitle>Tap on a task to mark as done</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <ng-container *ngIf="tasks.length > 0; else noTasksTemplate">
-        <mat-selection-list>
-          <mat-list-option *ngFor="let task of tasks" class="option_content">
-            <div class="task-info" (click)="updateTask(task)">
-              <span matListItemTitle>{{ task.title }}</span>
-              <span matListItemLine>{{ task.description }}</span>
-            </div>
-          </mat-list-option>
-        </mat-selection-list>
-      </ng-container>
-      <ng-template #noTasksTemplate>
-        <div class="empty_handle">
-          <mat-label>No pending tasks</mat-label>
-          <button mat-raised-button color="primary">Create a new task</button>
-        </div>
-      </ng-template>
+      <mat-selection-list>
+        <mat-list-option *ngFor="let task of tasks" class="option_content">
+          <div class="task-info" (click)="updateTask(task)">
+            <span matListItemTitle>{{ task.title }}</span>
+            <span matListItemLine>{{ task.description }}</span>
+          </div>
+        </mat-list-option>
+      </mat-selection-list>
+      <button mat-raised-button color="primary" (click)="exportTasks()" *ngIf="tasks.length > 0">Export tasks as
+        PDF</button>
+      <div *ngIf="tasks.length === 0" class="empty_handle">
+        <mat-label>No pending tasks</mat-label>
+        <button mat-raised-button color="primary" routerLink="/task">Create a new task</button>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
