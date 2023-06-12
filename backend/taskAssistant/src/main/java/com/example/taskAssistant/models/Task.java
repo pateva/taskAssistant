@@ -44,6 +44,13 @@ public class Task {
         this.isActive = true;
     }
 
+    public Task(Long taskId, String taskDescription, String taskTitle) {
+        this.taskId = taskId;
+        this.taskDescription = taskDescription;
+        this.taskTitle = taskTitle;
+        this.isActive = true;
+    }
+
     public Long getTaskId() {
         return taskId;
     }

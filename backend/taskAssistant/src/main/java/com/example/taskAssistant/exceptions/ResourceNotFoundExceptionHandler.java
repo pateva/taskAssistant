@@ -11,6 +11,7 @@ public class ResourceNotFoundExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<TaskDto> handleException(Exception exception) {
         if(exception instanceof ResourceNotFoundException) {
+            System.out.println("I am here");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 

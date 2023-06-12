@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
+    boolean existsByTaskId(Long taskId);
+
     @Query("SELECT t FROM Task t WHERE t.isActive = true")
     List<Task> findActiveTasks();
 }

@@ -36,7 +36,7 @@ public class TaskController {
             taskDtos.add(TaskMapper.toDto(task));
         }
 
-        if(isToFile) {
+        if (isToFile) {
             return FileExporter.exportTasksToFile(taskDtos);
 
         } else {
@@ -45,10 +45,9 @@ public class TaskController {
     }
 
 
-
     @GetMapping("/{id}")
     public ResponseEntity<TaskDto> getTask(@PathVariable Long id) {
-        if (!taskRepository.existsById(id)) {
+        if (!taskRepository.existsByTaskId(id)) {
 
             throw new ResourceNotFoundException("Task does not exist!");
         }
@@ -67,7 +66,13 @@ public class TaskController {
     @PutMapping("/{id}")
     public ResponseEntity<TaskDto> updateTask(@PathVariable Long id, @RequestParam(required = false, defaultValue = "false") boolean isInactive,
                                               @RequestBody TaskDto taskDto) {
-        Task existingTask = taskRepository.getReferenceById(id);
+        Task existingTask;
+
+        if (taskRepository.existsByTaskId(id)) {
+            existingTask = taskRepository.getReferenceById(id);
+        } else {
+            throw new ResourceNotFoundException("Task does not exist!");
+        }
 
         if (isInactive) {
             existingTask.setIsActive(false);
