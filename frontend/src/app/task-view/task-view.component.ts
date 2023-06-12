@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DataService } from '../data/data.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'tma-task-view',
@@ -6,7 +8,35 @@ import { Component } from '@angular/core';
   styleUrls: ['./task-view.component.scss']
 })
 export class TaskViewComponent {
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
+  description = '';
+  title = '';
+  taskId = 0;
+  postError: boolean = false;
+  postErrorMessage: any;
+
+  constructor(private dataService: DataService, private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.taskId = params['id'];
+    })
+
+    console.log("id = " + this.taskId);
+    this.dataService.getTaskById(this.taskId).subscribe(
+      result => {
+        this.description = result.description;
+        this.title = result.title;
+      },
+      error => {
+        this.onHttpError(error);
+      }
+    );
+  }
+
+  onHttpError(errorResponse: any) {
+    console.log("Error: ", errorResponse);
+    this.postError = true;
+    this.postErrorMessage = errorResponse.error?.errorMessage;
+  }
+
 }

@@ -1,35 +1,35 @@
 .container {
-    width: 50%;
-    //border: solid;
-    //border-color: green;
-    place-items: center;
-    text-align: left;
-    margin-left: 5%;
-    padding-top: 5%;
+  width: 50%;
+  //border: solid;
+  //border-color: green;
+  place-items: center;
+  text-align: left;
+  margin-left: 5%;
+  padding-top: 5%;
 }
 
 .empty_handle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    mat-label {
-        margin-top: 3%;
-        margin-bottom: 3%; // Optional margin between label and button
-    }
+  mat-label {
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
 
 }
 
 .option-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .task-info {
-    flex-grow: 1;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .button-container {
-    margin-left: auto;
-  }
+.task-info {
+  flex-grow: 1;
+}
+
+.button-container {
+  margin-left: auto;
+}
