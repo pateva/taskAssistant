@@ -32,7 +32,7 @@ export class NewTaskComponent {
       this.dataService.postTask(newTask).subscribe(
         result => {
           console.log("Success: ", result);
-          this.router.navigateByUrl(`/task/${result.taskId}`);
+          this.router.navigateByUrl(`/tasks`);
         },
         error => {
           this.onHttpError(error);
