@@ -12,9 +12,9 @@ Frontend library: Angular Material<br>
 To run the project locally:
 1. Make sure you have JDK 17 installed
 2. I have used Intelli J as IDE for the backend and can confirm the project is prima there
-4. Clone the github repository
-5. Open the backend project and add the sytem variables for the database you have received per mail (save configuration)
-6. You can run the project either from the IDE or you can navigate to the pom.xml file directory and run "mvn spring-boot:run"
+4. Clone the github repository (https://github.com/pateva/taskAssistant.git)
+5. Open the backend project and add the sytem variables for the database you have received per mail (save the configuration)
+6. You can run the project either from the IDE or you can navigate to the pom.xml file directory via the terminal and run "mvn spring-boot:run"
 7. I have used Visual Basic as IDE for the fronend and can confirm it works great there
 8. Make sure you have Node.js on your local machine
 9. Make sure you have Angular CLI installed on your local machine (you can use "npm install -g @angular/cli")
@@ -23,8 +23,9 @@ To run the project locally:
 12.  Application is accessible at "http://localhost:4200"
 
 Snaps:
-- 1. video - dispplays the frontend implementation, which is not yet done. There are certainly points, which will be improved
-- 2. video - dispplay the working PUT request
+- 1. video - displays the frontend implementation, which is not yet done. There are certainly points, which will be improved. As explained in the mail, it is a really busy period.
+- 2. video - displays the working PUT request
+- Both videos are compressed and low quality thus the snaps have been added as well. There you can really see the UI.
 
 <img src="https://github.com/pateva/taskAssistant/assets/83903221/769e1d46-ae1d-478f-b8b6-50b95ee4c3fb" width=400/>
 <img src="https://github.com/pateva/taskAssistant/assets/83903221/dbb95aee-b0d1-4b77-92da-e4c0171816a9" width=400/>
